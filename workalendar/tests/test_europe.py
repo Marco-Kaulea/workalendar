@@ -783,6 +783,12 @@ class HungaryTest(GenericCalendarTest):
         good_friday_2017 = date(2017, 4, 14)
         self.assertIn(good_friday_2017, holidays)
 
+    def test_rest_days_2022(self):
+        self.assertTrue(self.cal.is_working_day(date(2022, 3, 26)))
+        self.assertFalse(self.cal.is_working_day(date(2022, 3, 14)))
+        self.assertTrue(self.cal.is_working_day(date(2022, 10, 15)))
+        self.assertFalse(self.cal.is_working_day(date(2022, 10, 31)))
+
 
 class MaltaTest(GenericCalendarTest):
     """Rollover rules changed in 2005"""
